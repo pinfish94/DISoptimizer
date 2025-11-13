@@ -10,7 +10,7 @@ A machine learning framework for optimizing chlorine dose in drinking water trea
 ### 1. Train Prediction Models
 First, train and save the required models:
 
-# Train and save Cl2 consumption model
+# Train and save chlorine consumption model
 from train_cl2_consumption import train_and_save_model
 train_and_save_model()
 
