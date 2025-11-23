@@ -36,10 +36,14 @@ DISoptimizer  has been successfully tested and run on the following software env
     *   Python (3.11)
        
     **Python Packages:**
-    *   numpy (>= 1.21.0)
-    *   pandas (>= 1.3.0)
-    *   scikit-learn (>= 1.0.0)
-  
+    *   numpy (1.25.2)
+    *   pandas (2.2.2)
+    *   scikit-learn (1.5.1)
+    *   XGBoost (1.7.6)
+    *   LightGBM (4.6.0)
+    *   CatBoost (1.2.8)
+    *   Bayesian Optimization (3.0.0)
+ 
     **Operating Systems:**
     *   macOS (Monterey 12.6)
 
@@ -60,7 +64,7 @@ This guide will help you set up the DISoptimizer environment.
 
 3.  Download the source code
 	
-	       git clone https://github.com/YourName/DISoptimizer.git
+	       git clone https://github.com/pinfish94/DISoptimizer.git
            cd DISoptimizer
 
 4.   Python packages:
