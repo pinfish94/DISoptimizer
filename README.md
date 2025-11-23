@@ -179,7 +179,7 @@ Take Figure 6 (Main text) as an example.
 
 The output file contains the predicted chlorine consumption, which is used as an additional feature for THM4 formation prediction.
 
-- Open `# predict_chlorine_consumption_G.py` and modify the following lines in the `if __name__ == "__main__":` section:
+- Open `# predict_thm_formation_G.py` and modify the following lines in the `if __name__ == "__main__":` section:
 
       if __name__ == "__main__":  
           input_file = "THM formation prediction at 3.xlsx"  
@@ -189,6 +189,8 @@ The output file contains the predicted THM4 formation.
 
 When you set the chlorine dose to 4, 5, and 6 mg/L, you can obtain the resulting residual chlorine and THM formation under various fixed dosing scenarios.
 
+
+
 ## License
 
-The software is released under the MIT License. Parts of the underlying disinfection optimization method are covered by a pending patent application, and the open-source license applies to the code only.
+The software is released under the MIT License. 
