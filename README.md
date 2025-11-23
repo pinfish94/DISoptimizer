@@ -1,9 +1,23 @@
 # DISoptimizer
-Paper code availability 
 
-# DISoptimizer: Water Disinfection Optimization
+DISoptimizer is a go-to Python toolkit for smarter water disinfection. Simply provide your raw water conditions, and our tool will deliver key predictions:
 
-A machine learning framework for optimizing chlorine dose in drinking water treatment to minimize THM formation without compromising disinfection
+-   **Optimal Chlorine Dosage**: The precise amount needed for effective disinfection.
+    
+-   **Residual Chlorine**: The expected chlorine level after a specified contact time.
+    
+-   **THM4 Formation**: The predicted concentration of Trihalomethane byproducts.
+    
+
+Make data-driven decisions for safer, compliant drinking water.
+
+# Content
+
+-   **Overview**
+-  **System requirements**
+-  **Installation Guide**
+-  **Demo**
+-  **Instructions for use**
 
 ## Quick Start
 
