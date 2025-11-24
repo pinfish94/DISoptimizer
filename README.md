@@ -13,11 +13,12 @@ Make data-driven decisions for safer, compliant drinking water.
 
 # Content
 
--   **Overview**
--  **System requirements**
--  **Installation Guide**
+- **Overview**
+- **System requirements**
+- **Installation Guide**
 - **Demo**
 - **Instructions for use**
+- **Reproduction Instructions**
 
 
 ## Overview
@@ -193,4 +194,4 @@ When you set the chlorine dose to 4, 5, and 6 mg/L, you can obtain the resulting
 
 ## License
 
-The software is released under the MIT License. 
+The software is released under the MIT License. Parts of the underlying disinfection optimization method are covered by a pending patent application, and the open-source license applies to the code only.
