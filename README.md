@@ -87,43 +87,38 @@ This demo illustrates how to:
 
 - Step 1   Train the chlorine consumption prediction model
 
-       python “Chlorine consumption_prediction_G.py”
+       python “predict_Cl2consumption.py”
 
    Expected output
  
        train R²:    | RMSE:  
        test R²:     | RMSE:
-       model save  saved_models/catboost_model.cbm
+      
        
 - Step 2   Train the THM Prediction Model
 
-       python “THM prediction_G.py”
+       python “predict_THM.py”
 
    Expected output
  
        train R²:    | RMSE:  
        test  R²:    | RMSE:
-       model save  saved_models/stacking_model.pkl
+
  
  - Step 3   Run the Optimization
  **This step uses the pre-trained models to find the optimal chlorine dosage for a new set of water quality data.
     
-        python "Chlorine dose prediction_G.py"
-
-   Expected output
-
- 
-        result save : cl2dose.xlsx
+        python "optimizer_csafe.py"
 
 **Expected Run Time**
 
 The execution time varies for different steps of DISoptimizer:
 
-- **Training Models** (`Chlorine consumption_prediction_G.py` and `THM prediction_G.py`): 
-  Typically completes in **about 1 minute** on a normal desktop computer.
+- **Training Models** (`predict_Cl2consumption.py` and `predict_THM.py`): 
+  Typically completes in **about 1-2 minutes** on a normal desktop computer.
 
-- **Running Optimization** (`Chlorine dose prediction_G.py`):
-  The optimization process takes approximately **5-10 seconds per water sample**. The total time depends on the number of samples in your input file - more samples will require proportionally longer processing time.
+- **Running Optimization** (`optimizer_csafe.py`):
+  The optimization process takes approximately **5-30 seconds per water sample**. The total time depends on the number of samples in your input file - more samples will require proportionally longer processing time.
 
 
 ## Instructions for use
@@ -133,63 +128,21 @@ Prepare your data according to the format in the **"DISoptimizer"** sheet of `Da
 
 
 ### 2. Configure the Script
-Open `Chlorine dose prediction_G.py` and modify the following lines in the `if __name__ == "__main__":` section:
+Open `optimuzer_csafe.py` and modify the following lines in the `if __name__ == "__main__":` section:
 
     if __name__ == "__main__":
          input_file = "your_data.xlsx"  # Change to your Excel file name
          sheetname = "DISoptimizer"     # Change if using different sheet name
-         output_file = "my_results.xlsx" # Change output file name as needed
+        
+### 3. Set parameters
+Open `optimuzer_csafe.py` and modify the following lines in 
 
-### 3. Run the Optimization
-    python "Chlorine dose prediction_G.py"
+`HARD_L, HARD_U = 0.3, 1.5 
+ DOSE_MIN, DOSE_MAX = 0.1, 10.0  
+ CSAFE = 0.80 A_WEIGHT = 0.3 ` # constraints and preference settings 
 
-
-## Reproduction Instructions
-
-### 1. Reproduce Model Performance Results
-
-Run the individual model training scripts to obtain the R² and RMSE values for each algorithm:
-
-For example
-
-    ##For chlorine consumption prediction models
-    python “Chlorination consumption prediction_CatBoost_G.py”
-    
-    ##For THM consumption prediction models
-    python “THM prediction_Stacking Model_G.py”
-    
-### 2. Reproduce the Optimization Results
-
-Take Figure 6 (Main text) as an example.
-
-- Open `# Chlorine dose prediction_G.py` and modify the following lines in the `if __name__ == "__main__":` section:
-
-      if __name__ == "__main__":  
-          input_file = "Dataset.xlsx"  
-          sheetname = "DISoptimizer"  
-          output_file = "cl2dose.xlsx"
-
-  The output file contains the optimal chlorine dose, the resulting free chlorine residual concentration, and the predicted THM4 formation for each water sample
-
-- Open `# predict_chlorine_consumption_G.py` and modify the following lines in the `if __name__ == "__main__":` section:
- 
-      if __name__ == "__main__":  
-          input_file = "Chlorine consumption prediction at 3.xlsx"  
-          output_file = "Predicted chlorine consumption at 3.xlsx"
-
-
-The output file contains the predicted chlorine consumption, which is used as an additional feature for THM4 formation prediction.
-
-- Open `# predict_thm_formation_G.py` and modify the following lines in the `if __name__ == "__main__":` section:
-
-      if __name__ == "__main__":  
-          input_file = "THM formation prediction at 3.xlsx"  
-          output_file = "thm_formation_at3_prediction_results_.xlsx"
-
-The output file contains the predicted THM4 formation.
-
-When you set the chlorine dose to 4, 5, and 6 mg/L, you can obtain the resulting residual chlorine and THM formation under various fixed dosing scenarios.
-
+### 4. Run the Optimization
+   
 
 
 ## License
